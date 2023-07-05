@@ -221,7 +221,7 @@ export default {
 
         countdown() {
 
-            localStorage.removeItem('regTimer')
+          
 
             if (localStorage.getItem('regTimer')) {
                 var regTimer = localStorage.getItem('regTimer')

@@ -37,7 +37,7 @@ export default {
     methods: {
     },
     mounted() {
-
+        localStorage.removeItem('regTimer')
     },
 }
 </script>

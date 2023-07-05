@@ -39,6 +39,7 @@ export default {
     methods: {
     },
     mounted() {
+        localStorage.removeItem('regTimer')
         this.form = JSON.parse(localStorage.getItem('rechargeData'));
     },
 }
