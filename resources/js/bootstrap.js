@@ -1,7 +1,11 @@
 import Vue from 'vue'
 
-// Vue.prototype.$asseturl = '/public/'
-Vue.prototype.$asseturl = '/'
+if(window.location.port=='8000'){
+    Vue.prototype.$asseturl = '/'
+}else{
+    Vue.prototype.$asseturl = '/public/'
+}
+
 
 Vue.prototype.$localStorage = localStorage
 window.ASSETURL = Vue.prototype.$asseturl
