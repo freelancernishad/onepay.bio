@@ -11,6 +11,7 @@ class Payment extends Model
 
     protected $fillable = [
         'userid',
+        'ipnurl',
         'client_userid',
         'token',
         'amount',
