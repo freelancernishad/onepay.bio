@@ -16,7 +16,7 @@
    </div>
     <p class="orderDetials mt-5">অর্ডার নাম্বর : {{ form.orderid }}</p>
     <p class="orderDetials">অর্ডারের পরিমাণ : {{ form.amount }} TK </p>
-<a href="/dashboard/user" style="width: 100%;margin: 20px 0px;background: black;color: white;padding: 8px 4px;border-radius: 30px;display: block;text-align: center;">অর্ডার বন্ধ করুন</a>
+<a :href="apiData.ipnurl" style="width: 100%;margin: 20px 0px;background: black;color: white;padding: 8px 4px;border-radius: 30px;display: block;text-align: center;">অর্ডার বন্ধ করুন</a>
 
 </main>
 
@@ -33,12 +33,20 @@
 export default {
     data(){
         return {
-            form:{}
+            form:{},
+            apiData:{}
         }
     },
     methods: {
+        async getData() {
+            var res = await this.callApi('get',`/api/payment?Stoken=${this.$route.params.Stoken}`,[]);
+            this.apiData = res.data
+
+
+        },
     },
     mounted() {
+        this.getData()
         localStorage.removeItem('regTimer')
         this.form = JSON.parse(localStorage.getItem('rechargeData'));
     },
