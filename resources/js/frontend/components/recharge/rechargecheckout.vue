@@ -164,6 +164,7 @@ export default {
             Messageactive:false,
             Message:'',
               rowss: {},
+              apidata: {},
               copyMessage:'111111',
               time: '15:00',
               form:{
@@ -196,6 +197,7 @@ export default {
             if(res.data==0){
                 this.$router.push({ name: 'rechargeFailed',params:{Stoken:this.$route.params.Stoken} });
             }
+            this.apidata = res.data;
             this.form['user_id'] = res.data.client_userid;
             this.settings = res.data.user;
             this.bkash = JSON.parse(this.settings.bkash);
@@ -252,11 +254,11 @@ export default {
 
 
 
-                var res = await this.callApi('post', `/api/admin/deposit`, this.form);
+                var res = await this.callApi('post', `${this.apidata.ipnurl}/api/admin/deposit`, this.form);
 
                 this.$router.push({ name: 'rechargesuccess',params:{Stoken:this.$route.params.Stoken} });
                 localStorage.removeItem('regTimer');
-             
+
             }
         },
         onCancel(){
