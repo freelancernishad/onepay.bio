@@ -12,21 +12,34 @@
             <div class="d-flex mx-3 my-3 mb-3">
                 <div class="w-50 " style="display: flex;align-items: center;">
                     <img :src="$asseturl + 'Recharge/onepay2.png'" width="30px" alt=""> <span style="    font-size: 24px;
-        font-weight: 700;">OnePay</span>
+        font-weight: 700;">ONE PAY</span>
                 </div>
-                <div class="text-end w-50" style="font-size: 24px;">
-                    <b style="font-family: auto;">{{ time }} </b>
+                <div class="text-end w-50" style="font-size: 24px;text-align: right;">
+                    <b style="">{{ time }} </b>
 
                 </div>
 
             </div>
             <div>
                 <p class="bg-warning mx-3 ps-4 py-2 rounded-top-5 pt-3"
-                    style="margin-bottom: 3px;font-size: 14px;border-top-left-radius: 2em!important; border-top-right-radius: 2em !important;font-family: auto;background-color: #FFD530!important;padding-left: 23px;">
+                    style="    margin-bottom: 3px;
+    font-size: 13px;
+    border-top-left-radius: 2em !important;
+    border-top-right-radius: 2em !important;
+
+    background-color: rgba(255, 213, 48, 0.76) !important;
+    padding: 15px 0px 4px 17px !important;
+    font-weight: 600;">
                     অর্ডার আইডি : {{ form.orderid }}</p>
                 <div>
                     <p class="bg-warning fw-medium mx-3 pt-2 py-5 rounded-bottom-5 text-center"
-                        style="border-bottom-right-radius: 2rem !important;border-bottom-left-radius: 2rem !important;font-size: 28px !important;font-weight: 700;font-family: auto;background-color: #FFD530!important;">
+                        style="padding: 15px 0px 31px 1px !important;
+    border-bottom-right-radius: 2rem !important;
+    border-bottom-left-radius: 2rem !important;
+    font-size: 28px !important;
+    font-weight: 700;
+
+    background-color: rgb(255 213 48 / 76%) !important;">
                         {{ form.amount }} TK</p>
                 </div>
 
@@ -34,7 +47,7 @@
             <div class="mx-4 mt-3">
                 <p class="ms-1" style="font-size: 14px;">আপনার একাউন্ট</p>
                 <input class="form-control mb-3 onepaynumberInput" type="number" v-model="form.sender"
-                    placeholder="016xxxxx345" minlength="11" maxlength="11" style="font-family: auto;" required>
+                    placeholder="016xxxxx345" minlength="11" maxlength="11" style="" required>
 
                 <small style="color: white;
         background: #000000a8;
