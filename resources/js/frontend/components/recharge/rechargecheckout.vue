@@ -201,8 +201,8 @@ export default {
             this.form['user_id'] = res.data.client_userid;
             this.settings = res.data.user;
             this.bkash = JSON.parse(this.settings.bkash);
-            this.nagad = this.settings.nagad;
-            this.rocket = this.settings.rocket;
+            this.nagad = JSON.parse(this.settings.nagad);
+            this.rocket = JSON.parse(this.settings.rocket);
 
 
             if(this.form.method==1){
