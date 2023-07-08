@@ -36,7 +36,13 @@ export default {
             return isPermitted
             // return this.$route.name;
         },
-
+        notifiyGlobal(mess){
+            this.Messageactive = true
+            this.Message = mess;
+            setTimeout(() => {
+                this.Messageactive = false
+            }, 1000);
+        },
 
         dateformatglobal(date=''){
             return  User.dateformat(date);

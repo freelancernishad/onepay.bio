@@ -161,6 +161,10 @@
 
 
 
+        <Preload :Isactive="isActive"/>
+
+
+
 
 
 
@@ -188,6 +192,7 @@ export default {
                 'name':'Rocket',
                 }
             ],
+            isActive:false,
             patmentChannel:false,
             time: '05:00',
             copyMessage: '111111',
@@ -303,6 +308,7 @@ export default {
 
 
         async getdata(Stoken){
+            this.isActive = true
             var res = await this.callApi('get',`/api/payment?Stoken=${Stoken}`,[]);
 
             if(res.data==0){
@@ -311,6 +317,7 @@ export default {
                 this.form['amount'] = res.data.amount;
 
             }
+            this.isActive = false
          },
 
 

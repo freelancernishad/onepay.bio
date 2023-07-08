@@ -60,3 +60,17 @@ Route::resources([
     });
 
 
+    Route::post('/set/account/{id}', function (Request $request,$id) {
+
+        $data = $request->except(['bkash','nagad','rocket']);
+
+        $data['bkash'] = json_encode($request->bkash);
+        $data['nagad'] = json_encode($request->nagad);
+        $data['rocket'] = json_encode($request->rocket);
+
+        $user = User::find($id);
+       $user->update($data);
+     return $user;
+    });
+
+

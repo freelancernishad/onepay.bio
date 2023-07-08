@@ -24,6 +24,21 @@ Vue.use(Vue2Editor);
 import paginate from './paginate.vue'
 Vue.component('Pagination', paginate);
 
+
+import Popups from './backend/components/confirmPopup';
+Vue.component('Popups', Popups);
+
+import Preload from './backend/components/preLoad';
+Vue.component('Preload', Preload);
+
+import message from './backend/components/message';
+Vue.component('Message', message);
+
+
+
+
+
+
 // window._ = require('lodash');
 window.Noty = require('noty');
 try {
