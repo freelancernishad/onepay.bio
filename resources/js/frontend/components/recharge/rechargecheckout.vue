@@ -77,7 +77,7 @@
     <span class="textFontSize acl979797" style="color: #979797;padding: 10px 0px;"><span style="font-size: 22px;color: red;font-weight: 700;">*</span> অর্থপ্রদানের পরে অনুগ্রহ করে আপনার [লেনদেন আইডি] অনুলিপি<br>করুন</span>
   </p>
 </div>
-<div class="borderDashed border border-top-0 mb-4 mx-3 rounded">
+<div class="borderDashed border border-top-0 mb-4 mx-3 rounded" style="    padding-bottom: 20px;">
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10">
     ধাপ 3। রিচার্জ সম্পূর্ণ করতে অনুগ্রহ করে লেনদেন আইডি লিখুন
   </p>
@@ -105,10 +105,19 @@
 
   <div class="">
 
+
+
     <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='bKash'" v-model="form.trx" type="text" placeholder="10-সংখ্যার লেনদেন আইডি">
     <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='Nagad'" v-model="form.trx" type="text" placeholder="8-সংখ্যার লেনদেন আইডি">
     <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='Rocket'" v-model="form.trx" type="text" placeholder="10-সংখ্যার লেনদেন আইডি">
+
+    <small style="    font-size: 10px;padding: 0px 0px 3px 8px;color: red;" v-if="errorMessage">{{ errorMessage }}</small>
+
+
   </div>
+
+
+
 
 </div>
 
@@ -151,7 +160,7 @@ export default {
 
         const clipboard = new ClipboardJS('.copyBtn');
         clipboard.on('success', (e)=> {
-            this.notifiyGlobal('copied success')
+            this.notifiyGlobal('সফলভাবে অনুলিপি করুন')
         });
         clipboard.on('error', (e)=> {
             this.notifiy('Failed to copy to clipboard!');
@@ -180,7 +189,9 @@ export default {
               rocket: [],
 
               settings: {},
-              paymentNumber:''
+              paymentNumber:'',
+              errorMessage:'',
+              validTrxCount:0,
         }
     },
     methods: {
@@ -207,16 +218,20 @@ export default {
 
 
             if(this.form.method==1){
+
+                this.validTrxCount = 10;
                 this.rowss = {
                 'id':1,
                 'name':'bKash',
                 }
             }else if(this.form.method==2){
+                this.validTrxCount = 8;
                 this.rowss = {
                 'id':1,
                 'name':'Nagad',
                 }
             }else if(this.form.method==3){
+                this.validTrxCount = 10;
                 this.rowss = {
                 'id':1,
                 'name':'Rocket',
@@ -244,21 +259,22 @@ export default {
         async onSubmit() {
 
             if(!this.form.trx){
-
                 this.notifiyGlobal('Please enter valid trxn id');
             }else{
 
+                    if (this.form.trx.length == this.validTrxCount) {
+                        this.errorMessage = '';
+                        this.con = true
+                        var res = await this.callApi('post', `${this.apidata.ipnurl}/api/admin/deposit`, this.form);
+                        this.$router.push({ name: 'rechargesuccess',params:{Stoken:this.$route.params.Stoken} });
+                        localStorage.removeItem('regTimer');
+                    }else{
+                        this.errorMessage = 'ডিপোজিট সম্পুর্ণ করতে অনুগ্রহ করে সম্পুর্ন লেনদেন আইডি লিখুন';
+                    }
 
 
 
-            this.con = true
 
-
-
-                var res = await this.callApi('post', `${this.apidata.ipnurl}/api/admin/deposit`, this.form);
-
-                this.$router.push({ name: 'rechargesuccess',params:{Stoken:this.$route.params.Stoken} });
-                localStorage.removeItem('regTimer');
 
             }
         },
