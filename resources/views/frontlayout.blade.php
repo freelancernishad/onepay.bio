@@ -20,7 +20,7 @@
 
     </div>
 
-    <script src="{{ asset('js/frontend.js?var=1.0.6') }}"></script>
+    <script src="{{ asset('js/frontend.js?var=1.0.7') }}"></script>
 
 <script>
 

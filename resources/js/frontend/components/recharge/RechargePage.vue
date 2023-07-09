@@ -232,7 +232,7 @@ export default {
         copyURL() {
             var Url = this.$refs.mylink;
             Url.innerHTML = window.location.href;
-            console.log(Url.innerHTML)
+            // console.log(Url.innerHTML)
             Url.select();
             document.execCommand("copy");
         },
@@ -240,6 +240,8 @@ export default {
         countdown() {
 
 
+            var regTimer = new Date(new Date().getTime() + 300000);
+                localStorage.setItem('regTimer', regTimer);
 
             if (localStorage.getItem('regTimer')) {
                 var regTimer = localStorage.getItem('regTimer')
@@ -272,7 +274,7 @@ export default {
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                console.log(seconds)
+                // console.log(seconds)
                 // Display the result in the element with id="countdown"
 
                 if (minutes < 10) {
@@ -293,7 +295,7 @@ export default {
                     this.timeout = 1;
                 }
                 if (this.menual) {
-                    console.log(this.menual)
+                    // console.log(this.menual)
                     clearInterval(x);
                 }
                 if (this.timeout == 1) {

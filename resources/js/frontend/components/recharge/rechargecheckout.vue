@@ -46,7 +46,7 @@
   <div class="mx-3 text-end"><a href="javascript:void(0)" @click="$router.go(-1)" class="text-decoration-none text-warning-emphasis" style="font-size: 12px;color: orange;">একাউন্ট সুইচ করতে ক্লিক করুন</a></div>
 
 </div>
-<div class="borderDashed border border-top-0 mb-4 mx-3 rounded">
+<div class="borderDashed border border-top-0 mb-3 mx-3 rounded">
   <p class="bg-primary text-white headFont paddinglr20 paddingtb10" v-if="rowss.name=='bKash'"> স্টেপ ১. বিকাশ ইনফর্মেশন </p>
   <p class="bg-primary text-white headFont paddinglr20 paddingtb10" v-else-if="rowss.name=='Nagad'"> স্টেপ ১. নগদ ইনফর্মেশন </p>
   <p class="bg-primary text-white headFont paddinglr20 paddingtb10" v-else-if="rowss.name=='Rocket'"> স্টেপ ১. রকেট ইনফর্মেশন </p>
@@ -69,12 +69,12 @@
 </div>
 <!-- <hr class="mx-4"> -->
 
-<div class="borderDashed border border-top-0 mb-4 mx-3 rounded">
+<div class="borderDashed border border-top-0 mb-3 mx-3 rounded">
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10" v-if="rowss.name=='bKash'"> ধাপ 2. বিকাশ ট্রান্সফারের মাধ্যমে আপনি যে পরিমাণ রিচার্জ করতে চান তা আমাদের কাছে ট্রান্সফার করুন। </p>
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10" v-else-if="rowss.name=='Nagad'"> ধাপ 2. নগদ ট্রান্সফারের মাধ্যমে আপনি যে পরিমাণ রিচার্জ করতে চান তা আমাদের কাছে ট্রান্সফার করুন। </p>
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10" v-else-if="rowss.name=='Rocket'"> ধাপ 2. রকেট ট্রান্সফারের মাধ্যমে আপনি যে পরিমাণ রিচার্জ করতে চান তা আমাদের কাছে ট্রান্সফার করুন। </p>
-  <p class="ms-3 my-1">
-    <span class="textFontSize acl979797" style="color: #979797;padding: 10px 0px;"><span color="red">*</span> অর্থপ্রদানের পরে অনুগ্রহ করে আপনার [লেনদেন আইডি] অনুলিপি<br>করুন</span>
+  <p class="ms-3 my-1" style="    padding: 0px 10px;">
+    <span class="textFontSize acl979797" style="color: #979797;padding: 10px 0px;"><span style="font-size: 22px;color: red;font-weight: 700;">*</span> অর্থপ্রদানের পরে অনুগ্রহ করে আপনার [লেনদেন আইডি] অনুলিপি<br>করুন</span>
   </p>
 </div>
 <div class="borderDashed border border-top-0 mb-4 mx-3 rounded">
@@ -105,9 +105,9 @@
 
   <div class="">
 
-    <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='bKash'" v-model="form.trx" type="text" placeholder="10 সংখ্যার লেনদেন আইডি">
-    <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='Nagad'" v-model="form.trx" type="text" placeholder="8 সংখ্যার লেনদেন আইডি">
-    <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='Rocket'" v-model="form.trx" type="text" placeholder="10 সংখ্যার লেনদেন আইডি">
+    <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='bKash'" v-model="form.trx" type="text" placeholder="10-সংখ্যার লেনদেন আইডি">
+    <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='Nagad'" v-model="form.trx" type="text" placeholder="8-সংখ্যার লেনদেন আইডি">
+    <input class="form-control mb-3 onepaynumberInput" v-if="rowss.name=='Rocket'" v-model="form.trx" type="text" placeholder="10-সংখ্যার লেনদেন আইডি">
   </div>
 
 </div>
@@ -193,6 +193,7 @@ export default {
 
 
           async getData() {
+            this.form = JSON.parse(localStorage.getItem('rechargeData'));
             var res = await this.callApi('get',`/api/payment?Stoken=${this.$route.params.Stoken}`,[]);
             if(res.data==0){
                 this.$router.push({ name: 'rechargeFailed',params:{Stoken:this.$route.params.Stoken} });
@@ -301,7 +302,7 @@ var x = setInterval(() => {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    console.log(seconds)
+    // console.log(seconds)
     // Display the result in the element with id="countdown"
 
     if (minutes < 10) {
@@ -322,7 +323,7 @@ var x = setInterval(() => {
         this.timeout = 1;
     }
     if (this.menual) {
-        console.log(this.menual)
+        // console.log(this.menual)
         clearInterval(x);
     }
     if (this.timeout == 1) {
@@ -339,7 +340,7 @@ var x = setInterval(() => {
 
     },
     mounted() {
-        this.form = JSON.parse(localStorage.getItem('rechargeData'));
+
             this.getData();
 
             this.countdown(this.menual);
@@ -362,7 +363,7 @@ var x = setInterval(() => {
     font-size: 10px !important;
 }
 .headFont {
-    font-size: 14px !important;
+    font-size: 13px !important;
     font-weight: 700;
 }
 
@@ -408,7 +409,7 @@ var x = setInterval(() => {
 
 .fifbutton {
     position: fixed;
-    bottom: 80px;
+    bottom: 8px;
     width: 341px;
     height: 52px;
     border-radius: 26px;
