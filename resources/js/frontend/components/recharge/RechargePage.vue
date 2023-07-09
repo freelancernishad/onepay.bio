@@ -29,8 +29,8 @@
 
     background-color: rgba(255, 213, 48, 0.76) !important;
     padding: 15px 0px 4px 17px !important;
-    font-weight: 600;">
-                    অর্ডার আইডি : {{ form.orderid }}</p>
+    font-weight: 500;">
+                    অর্ডার আইডি: &nbsp;{{ form.orderid }}</p>
                 <div>
                     <p class="bg-warning fw-medium mx-3 pt-2 py-5 rounded-bottom-5 text-center"
                         style="padding: 15px 0px 31px 1px !important;
