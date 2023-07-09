@@ -20,26 +20,27 @@
                 </div>
 
             </div>
-            <div>
-                <p class="bg-warning mx-3 ps-4 py-2 rounded-top-5 pt-3"
+            <div :style="'background: url('+$asseturl+'amount.png);background-size: cover;background-repeat: round;margin: 0px 15px;'">
+                <p class="mx-3 ps-4 py-2 rounded-top-5 pt-3"
                     style="    margin-bottom: 3px;
     font-size: 13px;
     border-top-left-radius: 2em !important;
     border-top-right-radius: 2em !important;
 
-    background-color: rgba(255, 213, 48, 0.76) !important;
-    padding: 15px 0px 4px 17px !important;
-    font-weight: 500;">
+
+    padding: 16px 0px 4px 0px !important;
+    font-weight: 500;
+    margin-left: 10px !important;">
                     অর্ডার আইডি: &nbsp;{{ form.orderid }}</p>
                 <div>
-                    <p class="bg-warning fw-medium mx-3 pt-2 py-5 rounded-bottom-5 text-center"
-                        style="padding: 15px 0px 31px 1px !important;
+                    <p class="fw-medium mx-3 pt-2 py-5 rounded-bottom-5 text-center"
+                        style="padding: 13px 0px 41px 1px !important;
     border-bottom-right-radius: 2rem !important;
     border-bottom-left-radius: 2rem !important;
     font-size: 28px !important;
     font-weight: 700;
 
-    background-color: rgb(255 213 48 / 76%) !important;">
+   ">
                         {{ form.amount }} TK</p>
                 </div>
 
