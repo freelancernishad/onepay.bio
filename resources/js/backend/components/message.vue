@@ -25,7 +25,7 @@ export default {
 <style>
 .Preloader2 {
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%,-50%);
     background: #000000d1;

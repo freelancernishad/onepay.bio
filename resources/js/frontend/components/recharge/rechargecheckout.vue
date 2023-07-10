@@ -20,7 +20,7 @@
 
     <div class="text-center mt-4">
     <img :src="$asseturl+'Recharge/onepay2.png'" alt="" style="width: 75px;">
-    <p style="font-size: 16px;font-weight: 600;">ONE PAY</p>
+    <p style="font-size: 16px;font-weight: 600;    margin-bottom: 11px;">ONE PAY</p>
 
 
     <div data-v-464536f2="" class="flex_row_left" style="    position: absolute;
@@ -43,7 +43,7 @@
 
 
 <div class="mx-3">
-  <div class="mx-3 text-end"><a href="javascript:void(0)" @click="$router.go(-1)" class="text-decoration-none text-warning-emphasis" style="font-size: 12px;color: orange;">একাউন্ট সুইচ করতে ক্লিক করুন</a></div>
+  <div class="mx-3 text-right"><a href="javascript:void(0)" @click="$router.go(-1)" class="text-decoration-none text-warning-emphasis" style="font-size: 12px;color: orange;">একাউন্ট সুইচ করতে ক্লিক করুন</a></div>
 
 </div>
 <div class="borderDashed border border-top-0 mb-3 mx-3 rounded">
@@ -74,10 +74,10 @@
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10" v-else-if="rowss.name=='Nagad'"> ধাপ 2. নগদ ট্রান্সফারের মাধ্যমে আপনি যে পরিমাণ রিচার্জ করতে চান তা আমাদের কাছে ট্রান্সফার করুন। </p>
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10" v-else-if="rowss.name=='Rocket'"> ধাপ 2. রকেট ট্রান্সফারের মাধ্যমে আপনি যে পরিমাণ রিচার্জ করতে চান তা আমাদের কাছে ট্রান্সফার করুন। </p>
   <p class="ms-3 my-1" style="    padding: 0px 10px;">
-    <span class="textFontSize acl979797" style="color: #979797;padding: 10px 0px;"><span style="font-size: 22px;color: red;font-weight: 700;">*</span> অর্থপ্রদানের পরে অনুগ্রহ করে আপনার [লেনদেন আইডি] অনুলিপি<br>করুন</span>
+    <span class="textFontSize acl979797" style="color: #979797;padding: 10px 0px;"><span style="font-size: 22px;color: red;font-weight: 700;">*</span> অর্থপ্রদানের পরে অনুগ্রহ করে আপনার [লেনদেন আইডি] অনুলিপি করুন</span>
   </p>
 </div>
-<div class="borderDashed border border-top-0 mb-4 mx-3 rounded" style="    padding-bottom: 20px;">
+<div class="borderDashed border border-top-0 mb-4 mx-3 rounded" style="    padding-bottom: 13px;">
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10">
     ধাপ 3। রিচার্জ সম্পূর্ণ করতে অনুগ্রহ করে লেনদেন আইডি লিখুন
   </p>
