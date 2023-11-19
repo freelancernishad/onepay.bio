@@ -20,6 +20,8 @@
                 </div>
 
             </div>
+
+
             <div :style="'background: url('+$asseturl+'amount.png);background-size: cover;background-repeat: round;margin: 0px 15px;'">
                 <p class="mx-3 ps-4 py-2 rounded-top-5 pt-3"
                     style="    margin-bottom: 3px;

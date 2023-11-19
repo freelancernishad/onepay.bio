@@ -69,6 +69,7 @@
 </div>
 <!-- <hr class="mx-4"> -->
 
+
 <div class="borderDashed border border-top-0 mb-3 mx-3 rounded">
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10" v-if="rowss.name=='bKash'"> ধাপ 2. বিকাশ ট্রান্সফারের মাধ্যমে আপনি যে পরিমাণ রিচার্জ করতে চান তা আমাদের কাছে ট্রান্সফার করুন। </p>
   <p class="bg-primary text-white mb-1 headFont paddinglr20 paddingtb10" v-else-if="rowss.name=='Nagad'"> ধাপ 2. নগদ ট্রান্সফারের মাধ্যমে আপনি যে পরিমাণ রিচার্জ করতে চান তা আমাদের কাছে ট্রান্সফার করুন। </p>
